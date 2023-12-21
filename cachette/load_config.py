@@ -95,7 +95,6 @@ class LoadConfig(BaseModel):
     @validator("redis_url", always=True)
     def validate_redis_url(cls, value: str, values: dict) -> str:
         backend: str = values["backend"].lower()
-        redis_host: str = values.get("redis_host", None)
 
         if backend == "redis":
             redis_host: str = values.get("redis_host", None)
