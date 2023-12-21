@@ -97,7 +97,7 @@ class LoadConfig(BaseModel):
         backend: str = values["backend"].lower()
         redis_host: str = values.get("redis_host", None)
 
-        if backend == "redis" and (not value or not redis_host):
+        if backend == "redis" and not value and not redis_host:
             raise ValueError('The "redis_url" or "redis_host" cannot be null when using redis as backend.')
         ### TODO: More validations ###
         return value
