@@ -30,7 +30,7 @@ class CachetteConfig(object):
 
     ### Redis ###
     _redis_url: str
-    _redis_host: str = "localhost"
+    _redis_host: str
     _redis_port: int = 6379
     _redis_username: str
     _redis_password: str
@@ -102,7 +102,7 @@ class CachetteConfig(object):
             cls._codec = config.codec or cls._codec
             cls._ttl = config.ttl or cls._ttl
             cls._redis_url = config.redis_url or ""
-            cls._redis_host = config.redis_host or cls._redis_host
+            cls._redis_host = config.redis_host or ""
             cls._redis_port = config.redis_port or cls._redis_port
             cls._redis_username = config.redis_username or None
             cls._redis_password = config.redis_password or None
