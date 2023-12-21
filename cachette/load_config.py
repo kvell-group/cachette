@@ -25,7 +25,6 @@ class LoadConfig(BaseModel):
     ttl: Optional[StrictInt]
 
     ### Redis ###
-    redis_url: Optional[StrictStr]
     redis_host: Optional[StrictStr]
     redis_port: Optional[StrictInt]
     redis_username: Optional[StrictStr]
@@ -34,6 +33,7 @@ class LoadConfig(BaseModel):
     redis_ssl_keyfile: Optional[StrictStr]
     redis_ssl_certfile: Optional[StrictStr]
     redis_ssl_ca_certs: Optional[StrictStr]
+    redis_url: Optional[StrictStr]
 
     ### Memcached ###
     memcached_host: Optional[StrictStr]
@@ -103,7 +103,7 @@ class LoadConfig(BaseModel):
 
             if not value and not redis_host:
                 raise ValueError('The "redis_url" or "redis_host" cannot be null when using redis as backend.')
-        ### TODO: More validations ###
+        ## TODO: More validations ###
         return value
 
     @validator("memcached_host", always=True)
